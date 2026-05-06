@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<students>
+
+<student>
+    <name>Aryan</name>
+    <branch>CSE</branch>
+    <marks>85</marks>
+</student>
+
+<student>
+    <name>Rahul</name>
+    <branch>IT</branch>
+    <marks>70</marks>
+</student>
+
+</students>

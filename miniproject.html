@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperlapse Studios</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: white;
+        }
+
+        nav {
+            background-color: black;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            color: gold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header {
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+        }
+
+        .hero h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: gold;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 60px 10%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 40px;
+            color: gold;
+        }
+
+        .about p {
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #1c1c1c;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: gold;
+            margin-bottom: 15px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: black;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h1>Hyperlapse Studios</h1>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+
+        <div class="hero">
+
+            <h2>Documentaries & Cinematic Storytelling</h2>
+
+            <p>
+                Hyperlapse Studios creates cinematic documentaries,
+                professional videography, and creative visual stories
+                that capture real emotions and powerful experiences.
+            </p>
+
+            <a href="#" class="btn">View Projects</a>
+
+        </div>
+
+    </header>
+
+    <section class="about">
+
+        <h2 class="title">About Us</h2>
+
+        <p>
+            Hyperlapse Studios is a creative agency focused on documentary films,
+            cinematography, editing, and storytelling. We create visually powerful
+            content using modern cinematic techniques and creative direction.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2 class="title">Our Services</h2>
+
+        <div class="services">
+
+            <div class="card">
+                <h3>Documentary Films</h3>
+                <p>Professional storytelling through cinematic documentaries.</p>
+            </div>
+
+            <div class="card">
+                <h3>Cinematography</h3>
+                <p>Creative cinematic shots for brands and projects.</p>
+            </div>
+
+            <div class="card">
+                <h3>Video Editing</h3>
+                <p>Smooth editing, transitions, and cinematic color grading.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2 class="title">Featured Work</h2>
+
+        <div class="gallery">
+
+            <img src="https://picsum.photos/400/300?1">
+
+            <img src="https://picsum.photos/400/300?2">
+
+            <img src="https://picsum.photos/400/300?3">
+
+            <img src="https://picsum.photos/400/300?4">
+
+        </div>
+
+    </section>
+
+    <section class="contact">
+
+        <h2 class="title">Contact Us</h2>
+
+        <p>Email: hyperlapsestudios@gmail.com</p>
+
+        <p>Instagram: @hyperlapse.studios</p>
+
+        <p>Phone: +91 8767249717</p>
+
+    </section>
+
+    <footer>
+
+        <p>© 2026 Hyperlapse Studios | All Rights Reserved</p>
+
+    </footer>
+
+</body>
+
+</html>

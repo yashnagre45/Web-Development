@@ -3,66 +3,387 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yash | DYPCET</title>
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #050816;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at top left, #00f7ff33, transparent 20%),
+                radial-gradient(circle at bottom right, #ff00ff33, transparent 20%),
+                radial-gradient(circle at center, #0011ff22, transparent 25%);
+            animation: bgMove 12s linear infinite;
+            z-index: -2;
+        }
+
+        @keyframes bgMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-5%, -5%);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Navbar */
+
+        nav {
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00f7ff;
+            letter-spacing: 3px;
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #00f7ff;
+            text-shadow: 0 0 10px #00f7ff;
+        }
+
+        /* Hero Section */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h2 {
+            font-size: 70px;
+            font-family: 'Orbitron', sans-serif;
+            color: #00f7ff;
+            text-shadow: 0 0 15px #00f7ff;
+            margin-bottom: 20px;
+        }
+
+        .hero h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #ff00ff;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #dcdcdc;
+            line-height: 1.8;
+        }
+
+        /* Glass Cards */
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding-bottom: 80px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 35px;
+            margin: 35px 0;
+            transition: 0.4s;
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.3);
+        }
+
+        .card h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00f7ff;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .card p,
+        .card li {
+            color: #f1f1f1;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* Skills */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-box {
+            padding: 12px 25px;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #00f7ff, #0077ff);
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .skill-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00f7ff;
+        }
+
+        /* Practical Links */
+
+        .practical-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .practical-list a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            background: rgba(0, 247, 255, 0.1);
+            padding: 18px;
+            border-radius: 15px;
+            transition: 0.3s;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+        }
+
+        .practical-list a:hover {
+            background: linear-gradient(45deg, #00f7ff, #8f00ff);
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #00f7ff;
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: #cfcfcf;
+        }
+
+        /* Responsive */
+
+        @media(max-width:768px) {
+            .hero h2 {
+                font-size: 45px;
+            }
+
+            .hero h3 {
+                font-size: 22px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Yash</h1>
-        <h3>Computer Science Engineering Student</h3>
-        <p>DYPCET, Kolhapur</p>
-        <hr>
-    </header>
+    <!-- Navbar -->
 
-    <section>
-        <h2>About Me</h2>
-        <p>
-            I am Yash, a Computer Science and Engineering student at D. Y. Patil College of Engineering and Technology.
-            I am interested in coding and learning new technologies.
-        </p>
-    </section>
+    <nav>
+        <h1>YASH</h1>
 
-    <section>
-        <h2>Skills</h2>
         <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Java Basics</li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#practicals">Practicals</a></li>
         </ul>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h2>YASH</h2>
+
+            <h3>Computer Science Engineering Student</h3>
+
+            <p>
+                Student at D. Y. Patil College of Engineering and Technology, Kolhapur.
+                Passionate about futuristic technology, coding, innovation, and creating modern digital experiences.
+            </p>
+
+        </div>
+
     </section>
 
-    <section>
-        <h2>Hobbies</h2>
-        <ol>
-            <li>Programming</li>
-            <li>Problem Solving</li>
-            <li>Learning New Skills</li>
-        </ol>
-    </section>
+    <!-- Main Content -->
 
-    <section>
-        <h2>Practicals</h2>
-        <ul>
-            <li><a href="01_webdev.pdf">Practical 01: Web Dev PDF</a></li>
-            <li><a href="index.html">Practical 02: Personal Profile (index.html)</a></li>
-            <li><a href="03_tags.html">Practical 03: HTML Tags</a></li>
-            <li><a href="04_list.html">Practical 04: HTML Lists</a></li>
-            <li><a href="05_image.html">Practical 05: Images</a></li>
-            <li><a href="06_frames.html">Practical 06: Frames</a></li>
-            <li><a href="07_link.html">Practical 07: Links</a></li>
-            <li><a href="08_table.html">Practical 08: Tables</a></li>
-            <li><a href="09_reg.html">Practical 09: Registration Form</a></li>
-            <li><a href="10_resume.html">Practical 10: Resume</a></li>
-            <li><a href="11_xml.xml">Practical 11: XML File</a></li>
-            <li><a href="12_student.xml">Practical 12: Student XML with XSLT</a></li>
-            <li><a href="13_xslt.xsl">Practical 13: XSLT Stylesheet</a></li>
-        </ul>
-    </section>
+    <div class="container">
+
+        <!-- About -->
+
+        <section class="card" id="about">
+
+            <h2>About Me</h2>
+
+            <p>
+                I am a Computer Science and Engineering student who enjoys learning modern technologies and building
+                creative projects. I continuously explore web development, programming, and futuristic UI designs
+                to improve my technical skills.
+            </p>
+
+        </section>
+
+        <!-- Skills -->
+
+        <section class="card" id="skills">
+
+            <h2>Skills</h2>
+
+            <div class="skills">
+
+                <div class="skill-box">HTML</div>
+                <div class="skill-box">CSS</div>
+                <div class="skill-box">Java</div>
+                <div class="skill-box">Web Design</div>
+                <div class="skill-box">Problem Solving</div>
+
+            </div>
+
+        </section>
+
+        <!-- Hobbies -->
+
+        <section class="card" id="hobbies">
+
+            <h2>Hobbies</h2>
+
+            <ul>
+                <li>Programming</li>
+                <li>Problem Solving</li>
+                <li>Learning New Skills</li>
+                <li>Exploring Technology</li>
+            </ul>
+
+        </section>
+
+        <!-- Practicals -->
+
+        <section class="card" id="practicals">
+
+            <h2>Practicals</h2>
+
+            <div class="practical-list">
+
+                <a href="01_webdev.pdf">Practical 01: Web Dev PDF</a>
+
+                <a href="index.html">Practical 02: Personal Profile</a>
+
+                <a href="03_tags.html">Practical 03: HTML Tags</a>
+
+                <a href="04_list.html">Practical 04: HTML Lists</a>
+
+                <a href="05_image.html">Practical 05: Images</a>
+
+                <a href="06_frames.html">Practical 06: Frames</a>
+
+                <a href="07_link.html">Practical 07: Links</a>
+
+                <a href="08_table.html">Practical 08: Tables</a>
+
+                <a href="09_reg.html">Practical 09: Registration Form</a>
+
+                <a href="10_resume.html">Practical 10: Resume</a>
+
+                <a href="11_xml.xml">Practical 11: XML File</a>
+
+                <a href="12_student.xml">Practical 12: Student XML</a>
+
+                <a href="13_xslt.xsl">Practical 13: XSLT Stylesheet</a>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- Footer -->
 
     <footer>
-        <hr>
-        <p>&copy; 2026 Yash | DYPCET</p>
+
+        <p>© 2026 Yash | DYPCET</p>
+
     </footer>
 
 </body>

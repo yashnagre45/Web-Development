@@ -1,24 +1,413 @@
-﻿<!-- Education -->
+﻿<!DOCTYPE html>
+<html lang="en">
 
-<div class="section">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash Gajanan Nagre | Futuristic Resume</title>
 
-    <h2>Education</h2>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
 
-    <ul>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <li>
-            Currently pursuing <strong>B.Tech in Computer Science Engineering</strong>
-        </li>
+        body {
+            background: #050816;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
 
-        <li>
-            2nd Year Student at <strong>D. Y. Patil College of Engineering and Technology</strong>,
-            Kasaba Bawada, Kolhapur
-        </li>
+        /* Animated Background */
 
-        <li>Completed 12th Science</li>
+        body::before {
+            content: "";
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at top left, #00f7ff33, transparent 20%),
+                radial-gradient(circle at bottom right, #ff00ff33, transparent 20%),
+                radial-gradient(circle at center, #0011ff22, transparent 25%);
+            animation: bgMove 12s linear infinite;
+            z-index: -2;
+        }
 
-        <li>Completed 10th SSC</li>
+        @keyframes bgMove {
+            0% {
+                transform: translate(0, 0);
+            }
 
-    </ul>
+            50% {
+                transform: translate(-5%, -5%);
+            }
 
-</div>
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        /* Header */
+
+        .header {
+            text-align: center;
+            padding: 50px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.15);
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 65px;
+            color: #00f7ff;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 15px #00f7ff;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            color: #ff00ff;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            color: #dcdcdc;
+            font-size: 16px;
+        }
+
+        /* Sections */
+
+        .section {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.4s;
+        }
+
+        .section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.2);
+        }
+
+        .section h2 {
+            color: #00f7ff;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        .section p,
+        .section li {
+            color: #f1f1f1;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        /* Skills */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 12px 24px;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #00f7ff, #0051ff);
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00f7ff;
+        }
+
+        /* Projects */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            padding: 25px;
+            border-radius: 20px;
+            background: rgba(0, 247, 255, 0.08);
+            border: 1px solid rgba(0, 247, 255, 0.15);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.03);
+            background: linear-gradient(45deg, #00f7ff22, #ff00ff22);
+        }
+
+        .project-card h3 {
+            color: #00f7ff;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #bfbfbf;
+            font-size: 15px;
+        }
+
+        /* Responsive */
+
+        @media(max-width:768px) {
+
+            .header h1 {
+                font-size: 40px;
+            }
+
+            .header h2 {
+                font-size: 22px;
+            }
+
+            .contact {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+
+        <div class="header">
+
+            <h1>YASH GAJANAN NAGRE</h1>
+
+            <h2>2nd Year B.Tech CSE Student</h2>
+
+            <div class="contact">
+
+                <p>📧 yash@gmail.com</p>
+
+                <p>📞 8767249717</p>
+
+                <p>📍 Kasaba Bawada, Kolhapur</p>
+
+            </div>
+
+        </div>
+
+        <!-- Objective -->
+
+        <div class="section">
+
+            <h2>Career Objective</h2>
+
+            <p>
+                Passionate Computer Science Engineering student at
+                D. Y. Patil College of Engineering and Technology, Kasaba Bawada, Kolhapur.
+                Focused on futuristic web development, software engineering,
+                cinematography, documentary filmmaking, and creative digital experiences.
+                Continuously improving technical and creative skills through innovative projects
+                and Hyperlapse Studios.
+            </p>
+
+        </div>
+
+        <!-- Education -->
+
+        <div class="section">
+
+            <h2>Education</h2>
+
+            <ul>
+
+                <li>
+                    Currently Pursuing <strong>B.Tech in Computer Science Engineering</strong>
+                </li>
+
+                <li>
+                    2nd Year Student at <strong>D. Y. Patil College of Engineering and Technology</strong>,
+                    Kasaba Bawada, Kolhapur
+                </li>
+
+                <li>Completed 12th Science</li>
+
+                <li>Completed SSC (10th)</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Skills -->
+
+        <div class="section">
+
+            <h2>Skills</h2>
+
+            <div class="skills">
+
+                <div class="skill">HTML</div>
+
+                <div class="skill">CSS</div>
+
+                <div class="skill">Java</div>
+
+                <div class="skill">Python</div>
+
+                <div class="skill">Basic C</div>
+
+                <div class="skill">Web Design</div>
+
+                <div class="skill">UI/UX</div>
+
+                <div class="skill">Video Editing</div>
+
+                <div class="skill">Cinematography</div>
+
+                <div class="skill">Documentary Filmmaking</div>
+
+                <div class="skill">Creative Direction</div>
+
+                <div class="skill">Storytelling</div>
+
+            </div>
+
+        </div>
+
+        <!-- Agency -->
+
+        <div class="section">
+
+            <h2>Hyperlapse Studios</h2>
+
+            <p>
+                Founder of <strong>Hyperlapse Studios</strong>,
+                a creative media agency focused on cinematic storytelling,
+                documentary filmmaking, professional videography,
+                creative direction, and modern cinematography projects.
+            </p>
+
+        </div>
+
+        <!-- Projects -->
+
+        <div class="section">
+
+            <h2>Projects</h2>
+
+            <div class="projects">
+
+                <div class="project-card">
+
+                    <h3>Futuristic Portfolio Website</h3>
+
+                    <p>
+                        Designed and developed a modern futuristic portfolio
+                        website using HTML and CSS with animations and advanced UI styling.
+                    </p>
+
+                </div>
+
+                <div class="project-card">
+
+                    <h3>AI Chatbot Project</h3>
+
+                    <p>
+                        Built a chatbot project using programming fundamentals,
+                        logical thinking, and basic AI concepts.
+                    </p>
+
+                </div>
+
+                <div class="project-card">
+
+                    <h3>Documentary Production</h3>
+
+                    <p>
+                        Worked on cinematic documentary concepts and storytelling projects
+                        under Hyperlapse Studios.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Hobbies -->
+
+        <div class="section">
+
+            <h2>Interests & Hobbies</h2>
+
+            <ul>
+
+                <li>Programming & Web Development</li>
+
+                <li>Documentary Filmmaking</li>
+
+                <li>Creative Cinematography</li>
+
+                <li>Exploring Modern Technology</li>
+
+                <li>Video Production & Editing</li>
+
+                <li>Learning New Skills</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Footer -->
+
+        <footer>
+
+            <p>© 2026 | Designed by Yash Gajanan Nagre</p>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

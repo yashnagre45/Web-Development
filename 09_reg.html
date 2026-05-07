@@ -1,44 +1,371 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>Employee Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Registration Portal</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #030712;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+
+        body::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at top left, #00f7ff22, transparent 20%),
+                radial-gradient(circle at bottom right, #ff00ff22, transparent 20%),
+                radial-gradient(circle at center, #0044ff22, transparent 25%);
+            animation: animateBg 10s linear infinite;
+            z-index: -2;
+        }
+
+        @keyframes animateBg {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-5%, -5%);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Floating Glow */
+
+        .glow1,
+        .glow2 {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+        }
+
+        .glow1 {
+            width: 300px;
+            height: 300px;
+            background: #00f7ff55;
+            top: -50px;
+            left: -50px;
+        }
+
+        .glow2 {
+            width: 350px;
+            height: 350px;
+            background: #ff00ff44;
+            bottom: -80px;
+            right: -80px;
+        }
+
+        /* Main Container */
+
+        .container {
+            width: 950px;
+            display: flex;
+            border-radius: 30px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 40px rgba(0, 247, 255, 0.15);
+        }
+
+        /* Left Panel */
+
+        .left-panel {
+            width: 40%;
+            background: linear-gradient(180deg, #00f7ff22, #001eff33);
+            padding: 50px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .left-panel h1 {
+            font-size: 42px;
+            color: #00f7ff;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #00f7ff;
+        }
+
+        .left-panel p {
+            color: #d9d9d9;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .feature-box {
+            margin-top: 30px;
+        }
+
+        .feature {
+            margin-bottom: 18px;
+            padding: 14px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #f1f1f1;
+        }
+
+        /* Right Panel */
+
+        .right-panel {
+            width: 60%;
+            padding: 45px;
+        }
+
+        .right-panel h2 {
+            text-align: center;
+            margin-bottom: 35px;
+            color: white;
+            font-size: 32px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Form Grid */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .input-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-box.full {
+            grid-column: span 2;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #d8d8d8;
+            font-size: 14px;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            outline: none;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #00f7ff;
+            box-shadow: 0 0 18px rgba(0, 247, 255, 0.35);
+        }
+
+        textarea {
+            resize: none;
+            height: 90px;
+        }
+
+        /* Radio */
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            color: white;
+            margin-top: 10px;
+        }
+
+        /* Button */
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 16px;
+            background: linear-gradient(45deg, #00f7ff, #0044ff);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px #00f7ff;
+        }
+
+        /* Responsive */
+
+        @media(max-width:900px) {
+
+            .container {
+                flex-direction: column;
+                width: 92%;
+            }
+
+            .left-panel,
+            .right-panel {
+                width: 100%;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .input-box.full {
+                grid-column: span 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<h2>Employee Registration</h2>
+    <div class="glow1"></div>
+    <div class="glow2"></div>
 
-<form>
+    <div class="container">
 
-Name:<br>
-<input type="text"><br><br>
+        <!-- Left Side -->
 
-Email:<br>
-<input type="text"><br><br>
+        <div class="left-panel">
 
-Password:<br>
-<input type="password"><br><br>
+            <h1>EMPLOYEE PORTAL</h1>
 
-Gender:<br>
-<input type="radio" name="g">Male
-<input type="radio" name="g">Female<br><br>
+            <p>
+                Advanced futuristic employee registration system designed for modern companies,
+                startups, and technology organizations.
+            </p>
 
-Skills:<br>
-<input type="checkbox">HTML
-<input type="checkbox">CSS<br><br>
+            <div class="feature-box">
 
-Department:<br>
-<select>
-<option>IT</option>
-<option>HR</option>
-<option>Finance</option>
-</select><br><br>
+                <div class="feature">✔ Secure Registration System</div>
 
-Address:<br>
-<textarea></textarea><br><br>
+                <div class="feature">✔ Department Management</div>
 
-<input type="submit" value="Submit">
+                <div class="feature">✔ Employee Profile Creation</div>
 
-</form>
+                <div class="feature">✔ Modern Corporate Dashboard UI</div>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="right-panel">
+
+            <h2>Register Employee</h2>
+
+            <form>
+
+                <div class="form-grid">
+
+                    <div class="input-box">
+                        <label>First Name</label>
+                        <input type="text" placeholder="Enter first name">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Enter last name">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="Enter email">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="Enter number">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Employee ID</label>
+                        <input type="text" placeholder="EMP1024">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Department</label>
+
+                        <select>
+                            <option>Development</option>
+                            <option>Cyber Security</option>
+                            <option>Human Resources</option>
+                            <option>Marketing</option>
+                            <option>Finance</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box full">
+                        <label>Password</label>
+                        <input type="password" placeholder="Create password">
+                    </div>
+
+                    <div class="input-box full">
+                        <label>Gender</label>
+
+                        <div class="radio-group">
+
+                            <label><input type="radio" name="g"> Male</label>
+
+                            <label><input type="radio" name="g"> Female</label>
+
+                            <label><input type="radio" name="g"> Other</label>
+
+                        </div>
+                    </div>
+
+                    <div class="input-box full">
+                        <label>Employee Address</label>
+
+                        <textarea placeholder="Enter employee address"></textarea>
+                    </div>
+
+                </div>
+
+                <button class="btn">CREATE EMPLOYEE PROFILE</button>
+
+            </form>
+
+        </div>
+
+    </div>
 
 </body>
+
 </html>
